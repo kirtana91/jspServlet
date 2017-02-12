@@ -44,7 +44,7 @@ public class MyServlet implements Servlet {
 		String servletName = servletConfig.getServletName();
 		response.setContentType("text/html");
 		PrintWriter writer = response.getWriter();
-		writer.print("<html><head></head>" + "<body>Hello from " + servletName + "</body></html>");
+		writer.print("<html><head></head>" + "<body>Hi " + servletName + "</body></html>");
 
 	}
 
