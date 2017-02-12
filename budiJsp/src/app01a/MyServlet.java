@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebServlet;
 /**
  * Servlet implementation class MyServlet
  */
-@WebServlet("/my")
+@WebServlet(name = "MyServlet", urlPatterns = { "/my" })
 public class MyServlet implements Servlet {
 
 	private transient ServletConfig servletConfig;
