@@ -1,4 +1,4 @@
-package app02;
+package app02.urlrewriting;
 
 import java.io.IOException;
 import java.io.PrintWriter;
