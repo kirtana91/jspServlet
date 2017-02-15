@@ -1,28 +1,22 @@
 package app04.servlet;
-
 import java.io.IOException;
 import java.util.HashMap;
-
+import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.sun.javafx.collections.MappingChange.Map;
-
 import app04.model.Address;
 import app04.model.Employee;
 
-
-@WebServlet("/employee")
+@WebServlet(urlPatterns = {"/employee"})
 public class EmployeeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Address address = new Address();
+    private static final long serialVersionUID = -5392874;
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Address address = new Address();
         address.setStreetName("Rue D'Anjou");
         address.setStreetNumber("5090B");
         address.setCity("Brossard");
@@ -36,17 +30,16 @@ public class EmployeeServlet extends HttpServlet {
         employee.setAddress(address);
         request.setAttribute("employee", employee);
 
-        Map<String, String> capitals = (Map<String, String>) new HashMap<String, String>();
-        ((HashMap<String,String>) capitals).put("China", "Beijing");
-        ((HashMap<String,String>) capitals).put("Austria", "Vienna");
-        ((HashMap<String,String>) capitals).put("Australia", "Canberra");
-        ((HashMap<String,String>) capitals).put("Canada", "Ottawa");
+        Map<String, String> capitals = new HashMap<String,
+                String>();
+        capitals.put("China", "Beijing");
+        capitals.put("Austria", "Vienna");
+        capitals.put("Australia", "Canberra");
+        capitals.put("Canada", "Ottawa");
         request.setAttribute("capitals", capitals);
 
         RequestDispatcher rd =
                 request.getRequestDispatcher("/employee.jsp");
         rd.forward(request, response);
     }
-	}
-
-
+}
